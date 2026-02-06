@@ -2,16 +2,39 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 
 export default function decorate(block) {
   /* change to ul, li */
-  const ul = document.createElement('ul');
-  [...block.children].forEach((row) => {
-    const li = document.createElement('li');
-    while (row.firstElementChild) li.append(row.firstElementChild);
-    [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
-    });
-    ul.append(li);
+  console.log(block);
+
+  const cards = [...block.children];
+
+  const cardsWrapper = document.createElement('div');
+  cardsWrapper.classList.add('container');
+
+  cards.forEach((card) => {
+      const img = card.querySelector('img');
+      const imgSrc = img?.src;
+      const altText = img?.alt;
+      const detailsList = card.querySelectorAll('p');
+
+      const cardItem = document.createElement('div');
+      cardItem.classList.add('card-item');
+  
+      cardItem.innerHTML = `
+        <div class="card-image">
+          <img src="${imgSrc}" alt="${altText}">
+        </div>
+      `;
+
+      const cardDetails = document.createElement('div');
+      cardDetails.classList.add('card-content');
+      
+      detailsList.forEach(content => {
+          cardDetails.innerHTML += `<p>${content.textContent.trim()}</p>`;
+      });
+  
+      cardItem.append(cardDetails);
+      cardsWrapper.append(cardItem);
   });
-  ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
-  block.replaceChildren(ul);
+
+  block.innerHTML = '';
+  block.append(cardsWrapper);
 }

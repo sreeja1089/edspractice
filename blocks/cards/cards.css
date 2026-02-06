@@ -1,27 +1,26 @@
-.cards > ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+.cards-wrapper {
+    background-color: #E8EFF4;
+    padding: 40px 0!important;
+    max-width: unset!important;
 }
-
-.cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+.cards > .container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
 }
-
-.cards .cards-card-body {
-  margin: 16px;
+.card-item {
+    text-align: center;
+    color: #072539;
 }
-
-.cards .cards-card-image {
-  line-height: 0;
+.card-item img {
+    width: 100%;
 }
-
-.cards > ul > li img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+.card-content p:first-child {
+    font-family: 'PTSerif-Caption'; 
+    font-style: italic;
+    font-size: 1.25rem;
+}
+.card-content p:last-child {
+    font-size: 14px;
+    line-height: 28px;
 }

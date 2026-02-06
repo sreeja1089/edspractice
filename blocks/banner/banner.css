@@ -1,0 +1,74 @@
+:root {
+    --bg1: url(/../../images/bg-body.jpg);
+}
+.banner-wrapper {
+    max-width: unset!important;
+    padding: 0!important;
+}
+
+.banner-wrapper {
+    background-color: #000;
+}
+
+.banner-wrapper .banner >  .container {
+    height: 400px; /* Adjustable height matching image proportions */
+    background: var(--bg1) center/cover no-repeat; /* Replace with actual shuttle image base64 or URL */
+    display: flex;
+    align-items: center;
+    padding: 60px;
+    position: relative;
+}
+.banner-content {
+    width: 40%;
+}
+.hero-banner-content {
+    max-width: 500px;
+    z-index: 1;
+    position: relative;
+}
+
+.banner h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    letter-spacing: 1px;
+    margin: 0 0 1rem 0;
+    font-family: 'PTSerif-Caption';
+    font-style: italic;
+}
+
+.banner h1 + p {
+    font-size: 1.1rem;
+    line-height: 2; 
+    color: #4da6ff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+    margin-bottom: 0.5rem;
+}
+
+.bottom-bar {
+    background: rgb(24, 26, 25);
+    padding: 20px 0px;
+    font-size: 0.95rem;
+    color: rgb(72, 75, 75);
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+.bottom-bar p {
+    font-family: 'PTSerif-Caption';
+    font-size: 40px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .banner {
+        height: 300px;
+        padding: 0 30px;
+    }
+    .banner h1 {
+        font-size: 2rem;
+    }
+    .bottom-bar {
+        padding: 15px 30px;
+    }
+}
