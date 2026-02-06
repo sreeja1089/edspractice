@@ -1,8 +1,8 @@
 export default function decorate(block) {
   const imgPath = block.querySelector('img').src;
-  const contentWrapper = block.querySelector('h1').parentElement; 
+  const contentWrapper = block.querySelector('h1').parentElement;
   const titleText = contentWrapper.querySelector('h1')?.textContent.trim();
-  const detailsText = contentWrapper.querySelector('p')?.textContent.trim(); 
+  const detailsText = contentWrapper.querySelector('p')?.textContent.trim();
   const bannerContainerDiv = document.createElement('div');
   bannerContainerDiv.classList.add('container');
   bannerContainerDiv.innerHTML = `
@@ -24,6 +24,6 @@ export default function decorate(block) {
   block.innerHTML = '';
   block.append(bannerContainerDiv, bottomBarDiv);
   if (imgPath) {
-    document.documentElement.style.setProperty("--bg1", `url(${imgPath})`);
+    document.documentElement.style.setProperty('--bg1', `url(${imgPath})`);
   }
 }
