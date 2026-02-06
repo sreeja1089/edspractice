@@ -8,29 +8,29 @@ export default function decorate(block) {
   cardsWrapper.classList.add('container');
 
   cards.forEach((card) => {
-      const img = card.querySelector('img');
-      const imgSrc = img?.src;
-      const altText = img?.alt;
-      const detailsList = card.querySelectorAll('p');
+    const img = card.querySelector('img');
+    const imgSrc = img?.src;
+    const altText = img?.alt;
+    const detailsList = card.querySelectorAll('p');
 
-      const cardItem = document.createElement('div');
-      cardItem.classList.add('card-item');
-  
-      cardItem.innerHTML = `
-        <div class="card-image">
-          <img src="${imgSrc}" alt="${altText}">
-        </div>
-      `;
+    const cardItem = document.createElement('div');
+    cardItem.classList.add('card-item');
 
-      const cardDetails = document.createElement('div');
-      cardDetails.classList.add('card-content');
-      
-      detailsList.forEach(content => {
-          cardDetails.innerHTML += `<p>${content.textContent.trim()}</p>`;
-      });
-  
-      cardItem.append(cardDetails);
-      cardsWrapper.append(cardItem);
+    cardItem.innerHTML = `
+      <div class="card-image">
+        <img src="${imgSrc}" alt="${altText}">
+      </div>
+    `;
+
+    const cardDetails = document.createElement('div');
+    cardDetails.classList.add('card-content');
+    
+    detailsList.forEach(content => {
+        cardDetails.innerHTML += `<p>${content.textContent.trim()}</p>`;
+    });
+
+    cardItem.append(cardDetails);
+    cardsWrapper.append(cardItem);
   });
 
   block.innerHTML = '';
